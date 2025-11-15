@@ -11,4 +11,7 @@ public interface EstacionamentoRepository extends JpaRepository<Estacionamento,L
     @Query("SELECT e FROM Estacionamento e WHERE e.veiculo.placa = ?1 AND e.vaga.local = ?2 AND e.dataHoraSaida IS NULL")
     Estacionamento findByPlacaAndVaga(String placa, String vaga);
 
+    @Query("SELECT e FROM Estacionamento e WHERE e.vaga.local = ?1 AND e.dataHoraSaida IS NULL")
+    Estacionamento findByVaga(String vaga);
+
 }

@@ -1,0 +1,1286 @@
+{
+	"info": {
+		"_postman_id": "8c291346-b17f-4ef7-b6ed-271f29a6493e",
+		"name": "Estacionamento Faseh",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38230853"
+	},
+	"item": [
+		{
+			"name": "veiculo",
+			"item": [
+				{
+					"name": "Buscar veiculo por id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/veiculo/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"veiculo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "388"
+								}
+							]
+						},
+						"description": "Endpoint para buscar um veículo pelo id"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/veiculo/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"veiculo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"marca\": \"Volkswagen\",\n  \"categoria\": \"CARRO\",\n  \"modelo\": \"Fusca\",\n  \"placa\": \"ABC-1234\",\n  \"propietario\": \"João da Silva\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar todos os veiculos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{baseUrl}}/veiculo",
+						"description": "Endpoint para buscar todos os veículos cadastrados"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/veiculo"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"marca\": \"Volkswagen\",\n    \"categoria\": \"CARRO\",\n    \"modelo\": \"Fusca\",\n    \"placa\": \"ABC-1234\",\n    \"propietario\": \"João da Silva\"\n  },\n  {\n    \"id\": 1,\n    \"marca\": \"Volkswagen\",\n    \"categoria\": \"CARRO\",\n    \"modelo\": \"Fusca\",\n    \"placa\": \"ABC-1234\",\n    \"propietario\": \"João da Silva\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Buscar veiculos no estaciomento",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{baseUrl}}/veiculo/estacionados",
+						"description": "Endpoint buscar todos os veículos atualmente estacionados"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/veiculo/estacionados"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"veiculosPorCategoria\": {\n    \"MOTO\": 3,\n    \"CARRO\": 2\n  },\n  \"totalVeiculos\": 5\n}"
+						}
+					]
+				},
+				{
+					"name": "Cadastar veiculo",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"marca\": \"Volkswagen\",\n  \"categoria\": \"CARRO\",\n  \"modelo\": \"Fusca\",\n  \"placa\": \"ABC-1234\",\n  \"propietario\": \"João da Silva\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/veiculo",
+						"description": "Endpoint para registrar novo veículo"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"marca\": \"Volkswagen\",\n  \"categoria\": \"CARRO\",\n  \"modelo\": \"Fusca\",\n  \"placa\": \"ABC-1234\",\n  \"propietario\": \"João da Silva\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/veiculo"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"marca\": \"Volkswagen\",\n  \"categoria\": \"CARRO\",\n  \"modelo\": \"Fusca\",\n  \"placa\": \"ABC-1234\",\n  \"propietario\": \"João da Silva\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar veiculo",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"marca\": \"Volkswagen\",\n  \"categoria\": \"CARRO\",\n  \"modelo\": \"Fusca\",\n  \"placa\": \"ABC-1234\",\n  \"propietario\": \"João da Silva\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/veiculo",
+						"description": "Endpoint para atualizar veiculo"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"marca\": \"Volkswagen\",\n  \"categoria\": \"CARRO\",\n  \"modelo\": \"Fusca\",\n  \"placa\": \"ABC-1234\",\n  \"propietario\": \"João da Silva\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/veiculo"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"marca\": \"Volkswagen\",\n  \"categoria\": \"CARRO\",\n  \"modelo\": \"Fusca\",\n  \"placa\": \"ABC-1234\",\n  \"propietario\": \"João da Silva\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Apagar veiculo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/veiculo/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"veiculo",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "388"
+								}
+							]
+						},
+						"description": "Endpoint apagar um veículo pelo id"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/veiculo/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"veiculo",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "vaga",
+			"item": [
+				{
+					"name": "Buscar todas as vagas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{baseUrl}}/vaga",
+						"description": "Endpoint para buscar todas as vagas de estacionamentos cadastradas"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/vaga"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"local\": \"E2\",\n    \"ocupada\": true\n  },\n  {\n    \"id\": 1,\n    \"local\": \"E2\",\n    \"ocupada\": true\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Atualizar vaga",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 4,\n  \"local\": \"E4\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/vaga",
+						"description": "Endpoint para atualizar vaga de estacionamento"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"local\": \"E2\",\n  \"ocupada\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/vaga"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"local\": \"E2\",\n  \"ocupada\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Cadastrar vaga",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"local\": \"E1\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/vaga",
+						"description": "Endpoint para registar nova vaga de estacionamento"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"local\": \"E2\",\n  \"ocupada\": true\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/vaga"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"local\": \"E2\",\n  \"ocupada\": true\n}"
+						}
+					]
+				},
+				{
+					"name": "Buscar todas as vagas ocupadas",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{baseUrl}}/vaga/ocupada",
+						"description": "Endpoint para buscar todas as vagas de estacionamentos em uso"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/vaga/ocupada"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"localVaga\": \"A1\",\n    \"placa\": \"ABC-1234\",\n    \"modelo\": \"Fusca\"\n  },\n  {\n    \"localVaga\": \"A1\",\n    \"placa\": \"ABC-1234\",\n    \"modelo\": \"Fusca\"\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Apagar vaga",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/vaga/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"vaga",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "388"
+								}
+							]
+						},
+						"description": "Endpoint para apagar vaga de estacionamento"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/vaga/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"vaga",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Buscar todas as vagas livres",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{baseUrl}}/vaga/livre",
+						"description": "Endpoint para buscar todas as vagas de estacionamentos livres"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/vaga/livre"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"localVaga\": \"E2\"\n  },\n  {\n    \"localVaga\": \"E2\"\n  }\n]"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "tabela",
+			"item": [
+				{
+					"name": "Buscar todas as tabelas de categoria-preço",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "{{baseUrl}}/tabela",
+						"description": "Endpoint buscar todas as tabelas de categoria-preço cadastradas"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": "{{baseUrl}}/tabela"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "[\n  {\n    \"id\": 1,\n    \"categoria\": \"CARRO\",\n    \"precoPorHora\": 15.5\n  },\n  {\n    \"id\": 1,\n    \"categoria\": \"CARRO\",\n    \"precoPorHora\": 15.5\n  }\n]"
+						}
+					]
+				},
+				{
+					"name": "Cadastrar tabela de categoria-preço",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"categoria\": \"CARRO\",\n  \"precoPorHora\": 15.5\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/tabela",
+						"description": "Endpoint para registar uma nova tabela de categoria-preço"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"categoria\": \"CARRO\",\n  \"precoPorHora\": 15.5\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/tabela"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"categoria\": \"CARRO\",\n  \"precoPorHora\": 15.5\n}"
+						}
+					]
+				},
+				{
+					"name": "Atualizar tabela categoria-preço",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"id\": 1,\n  \"categoria\": \"CARRO\",\n  \"precoPorHora\": 15.5\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/tabela",
+						"description": "Endpoint para atualizar uma tabela de categoria-preço"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 1,\n  \"categoria\": \"CARRO\",\n  \"precoPorHora\": 15.5\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/tabela"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"categoria\": \"CARRO\",\n  \"precoPorHora\": 15.5\n}"
+						}
+					]
+				},
+				{
+					"name": "Apagar vaga",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/vaga/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"vaga",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "388"
+								}
+							]
+						},
+						"description": "Endpoint para apagar vaga de estacionamento"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/vaga/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"vaga",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				},
+				{
+					"name": "Apagar tabela",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/tabela/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"tabela",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "388"
+								}
+							]
+						},
+						"description": "Endpoint apagar uma tabela categoria-preço pelo id"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/tabela/:id",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tabela",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "estacionamento",
+			"item": [
+				{
+					"name": "Registrar entrada",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"localVaga\": \"E1\",\n  \"placa\": \"ABC-1234\",\n  \"usuario\": \"carlos.silva\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/estacionamento",
+						"description": "Registra a entrada de veículo no estacionamento"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"localVaga\": \"E1\",\n  \"placa\": \"ABC-1234\",\n  \"usuario\": \"carlos.silva\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/estacionamento"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"id\": 1,\n  \"vaga\": {\n    \"id\": 1,\n    \"local\": \"E2\",\n    \"ocupada\": true\n  },\n  \"veiculo\": {\n    \"id\": 1,\n    \"marca\": \"Volkswagen\",\n    \"categoria\": \"CARRO\",\n    \"modelo\": \"Fusca\",\n    \"placa\": \"ABC-1234\",\n    \"propietario\": \"João da Silva\"\n  },\n  \"usuario\": \"carlos.silva\",\n  \"dataHoraEntrada\": \"1974-11-15T06:04:20.225Z\",\n  \"dataHoraSaida\": \"2013-12-04T21:56:30.213Z\",\n  \"valorTotal\": 15.5\n}"
+						}
+					]
+				},
+				{
+					"name": "Registrar saida",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"localVaga\": \"E1\",\n  \"placa\": \"ABC-1234\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/estacionamento",
+						"description": "Registra a saida de veículo do estacionamento e retorna o ticket"
+					},
+					"response": [
+						{
+							"name": "OK",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"localVaga\": \"E1\",\n  \"placa\": \"ABC-1234\",\n  \"usuario\": \"carlos.silva\"\n}",
+									"options": {
+										"raw": {
+											"headerFamily": "json",
+											"language": "json"
+										}
+									}
+								},
+								"url": "{{baseUrl}}/estacionamento"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"data_hora_carimbo\": \"2017-11-03T15:35:31.135Z\",\n  \"placa\": \"ABC-1234\",\n  \"localVaga\": \"E1\",\n  \"data_hora_entrada\": \"2015-04-03T03:32:17.522Z\",\n  \"data_hora_saida\": \"2023-03-04T08:07:36.282Z\",\n  \"valor\": 15.5\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Registrar entrada",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"localVaga\": \"E1\",\n  \"placa\": \"ABC-1234\",\n  \"usuario\": \"carlos.silva\"\n}",
+					"options": {
+						"raw": {
+							"headerFamily": "json",
+							"language": "json"
+						}
+					}
+				},
+				"url": "{{baseUrl}}/estacionamento",
+				"description": "Registra a entrada de veículo no estacionamento"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"localVaga\": \"E1\",\n  \"placa\": \"ABC-1234\",\n  \"usuario\": \"carlos.silva\"\n}",
+							"options": {
+								"raw": {
+									"headerFamily": "json",
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{baseUrl}}/estacionamento"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"id\": 1,\n  \"vaga\": {\n    \"id\": 1,\n    \"local\": \"E2\",\n    \"ocupada\": true\n  },\n  \"veiculo\": {\n    \"id\": 1,\n    \"marca\": \"Volkswagen\",\n    \"categoria\": \"CARRO\",\n    \"modelo\": \"Fusca\",\n    \"placa\": \"ABC-1234\",\n    \"propietario\": \"João da Silva\"\n  },\n  \"usuario\": \"carlos.silva\",\n  \"dataHoraEntrada\": \"1974-11-15T06:04:20.225Z\",\n  \"dataHoraSaida\": \"2013-12-04T21:56:30.213Z\",\n  \"valorTotal\": 15.5\n}"
+				}
+			]
+		},
+		{
+			"name": "Apagar vaga",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{baseUrl}}/vaga/:id",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"vaga",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "388"
+						}
+					]
+				},
+				"description": "Endpoint para apagar vaga de estacionamento"
+			},
+			"response": [
+				{
+					"name": "OK",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/vaga/:id",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"vaga",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [],
+					"cookie": [],
+					"body": ""
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080"
+		}
+	]
+}

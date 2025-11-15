@@ -3,11 +3,12 @@ package com.example.demo.model;
 import io.swagger.v3.oas.annotations.media.Schema;
 import jakarta.persistence.*;
 import lombok.Data;
+import java.math.BigDecimal;
 
 @Entity
-@Table(name = "vaga")
+@Table(name = "tabela")
 @Data
-public class Vaga {
+public class Tabela {
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -17,16 +18,18 @@ public class Vaga {
             example = "1"
     )
     private Long id;
+
     @Column(unique = true, nullable = false)
     @Schema(
-            description = "Localização da vaga",
-            example = "E2"
+            description = "Categoria do veículo",
+            example = "CARRO"
     )
-    private String local;
-    @Column(nullable = false)
+    private String categoria;
+
+    @Column(name = "preco_por_hora", nullable = false, precision = 10, scale = 2)
     @Schema(
-            description = "Booleano que indica se a vaga está ocupada",
-            example = "true"
+            description = "Valor cobrado por hora pela categoria do veículo",
+            example = "15.50"
     )
-    private boolean ocupada;
+    private BigDecimal precoPorHora;
 }

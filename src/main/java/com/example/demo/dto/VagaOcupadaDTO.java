@@ -1,26 +1,25 @@
 package com.example.demo.dto;
 
-import lombok.Data;
 import io.swagger.v3.oas.annotations.media.Schema;
+import lombok.Data;
 
 @Data
-public class EstacionamentoCreateDTO {
-
+public class VagaOcupadaDTO {
     @Schema(
             description = "Localização da vaga",
-            example = "E1"
+            example = "A1"
     )
     private String localVaga;
-
     @Schema(
             description = "Placa do veículo",
             example = "ABC-1234"
     )
     private String placa;
-
     @Schema(
-            description = "Usuário que está registrando o estacionamento",
-            example = "carlos.silva"
+            description = "Modelo do veículo",
+            example = "Fusca"
     )
-    private String usuario;
+    private String modelo;
 }
+
+
