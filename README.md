@@ -59,8 +59,8 @@ Siga os passos abaixo para executar o projeto localmente.
 
 1.  **Clone o repositório:**
     ```bash
-    git clone <https://github.com/BrunoVerly/estacionamento-faseh.git>
-    cd <estacionamento-faseh>
+    git clone https://github.com/BrunoVerly/estacionamento-faseh.git
+    cd estacionamento-faseh
     ```
 
 2.  **Compile e empacote o projeto com Maven:**
@@ -70,7 +70,7 @@ Siga os passos abaixo para executar o projeto localmente.
 
 3.  **Execute a aplicação:**
     ```bash
-    java -jar target/<nome-do-jar>.jar
+    java -jar target/demo-0.0.1-SNAPSHOT.jar
     ```
 
 A API estará disponível em `http://localhost:8080`.
